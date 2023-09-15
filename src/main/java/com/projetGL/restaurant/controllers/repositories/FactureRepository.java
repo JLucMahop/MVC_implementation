@@ -1,0 +1,18 @@
+package com.projetGL.restaurant.controllers.repositories;
+
+import com.projetGL.restaurant.entities.Facture;
+import com.projetGL.restaurant.entities.PaymentMethod;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.UUID;
+
+@Repository
+public interface FactureRepository extends CrudRepository<Facture, UUID> {
+
+    List<Facture> findByPaymentMethod(PaymentMethod paymentMethod);
+
+    List<Facture> findByAccountId(String accountId);
+
+}
